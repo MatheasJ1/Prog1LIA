@@ -43,24 +43,55 @@ public class RecipeBook
             }
         }
     }
-    public void listByType(RecipeType type)
+    public void listByType(String type)
     {
-        boolean found = false;
-        for (Recipe r : recipes) {
-            if (r.getType() == type) {
-                System.out.println(r.getId() + ": " + r.getTitle());
-                found = true;
+        /*if ( this.type.equals("Baked")){
+            for every recipe of baked type
+            print baked.recipes
+            set found to true
+            else if (this.type.equals("Soup"){
+                for every recipe of soup type
+                print soup.recipes
+                set found to true
+            } else if{
+                this.type.equals("Fried"){
+                    for every recipe of fried type
+                    print fried.recipes
+                    set found to true
+                }
             }
         }
-        if (!found) {
-            System.out.println("No recipes found for type: " + type);
+          if found = false
+          print "The Type may be Invalid or you may have a typo. Please enter
+          a valid type."*/
         }
-    }
-
     
     public void searchRecipes(String criteria, String query)
     {
+        /*set query to lowercase
+        set found to false
         
+        if recipe.title contains query then
+        print recipe.Id and recipe.Title
+        set found to true
+        end if
+        
+        else if criteria = "ingredient" then
+        for each ingredients in recipe.ingredients 
+        if recipe.ingredient contains query then
+        print recipe.Id and recipe.Title
+        set found to true
+        break loop
+        
+        else if criteria = "tag" then
+        for each tag in tag.tags 
+        if tag.tags contains query then
+        print recipe.Id and recipe.Title
+        set found to true
+        break loop
+        
+        if found = false
+        print "No results found."*/
     }
 
     public void printRecipeDetails(int recipeId)
@@ -76,7 +107,13 @@ public class RecipeBook
     
     public void rateRecipe(int recipeId, int rating)
     {
+        /*
+        if Id == null
+        print "Invalid Id. Please enter a valid recipe ID."
         
+        if rating > 1 || rating < 5
+        totalRating = this.recipeId.getTotalRating() + this.rating;
+        RatingCount = Rating count + 1;*/
     }
     
     public void listTopRatedRecipes()
@@ -86,7 +123,9 @@ public class RecipeBook
 
     public void scaleByServings(int recipeId, int newServings)
     {
-        
+       
+       
+       
     }
 
     public void addrecipe(Recipe recipe){
