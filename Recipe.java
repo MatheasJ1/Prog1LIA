@@ -13,8 +13,6 @@ public class Recipe
     private int Id;
     private String title;
     private String description;
-    private RecipeType type;
-    private ArrayList<Tag> tags;
     private int baseServing;
     private ArrayList<Ingredient> Ingredients;
     private String[] steps;
@@ -24,17 +22,13 @@ public class Recipe
     /**
      * Constructor for objects of class Recipe
      */
-    public Recipe(int Id, String title, String description, RecipeType type,
-    int baseServings)
+    public Recipe(int Id, String title, String description,int baseServings)
     {
         this.Id = Id;
         this.title = title;
         this.description = description;
-        this.type = type;
         this.baseServing = baseServings;
     }
-
-    
     public int getId()
     {
         return Id;
@@ -54,40 +48,23 @@ public class Recipe
     public void setDescription(String description){
         this.description = description;
     }
-    public RecipeType getType(){
-        return type;
-    }
-    public void setType(RecipeType type){
-        this.type = type;
-    }
-    public ArrayList<Tag> getTags(){
-        return  tags;
-    }
-    public void setTag(ArrayList<Tag> tags){
-         if (tags != null){
-             this.tags = new ArrayList<>(tags);
-         } else {
-             this.tags = new ArrayList<>();
-         }
-        
-    }
     public int getBaseServings(){
         return baseServing;
     }
     public void setBaseServings(int baseServing){
         this.baseServing = baseServing;
     }
-    public ArrayList<Ingredient> getIngredients(){
-        return Ingredients;
+        public ArrayList<Ingredient> getIngredients(){
+            return Ingredients;
     }
-    public void setIngredients(ArrayList<Ingredient> Ingredients){
-         if (Ingredients != null){
-             this.Ingredients = new ArrayList<>(Ingredients);
+        public void setIngredients(ArrayList<Ingredient> Ingredients){
+             if (Ingredients != null){
+                 this.Ingredients = new ArrayList<>(Ingredients);
          } else {
              this.Ingredients = new ArrayList<>();
          }
     }
-    public String[] getSteps(){
+        public String[] getSteps(){
         return steps;
     }
     public void setSteps(String[] steps){
@@ -95,6 +72,13 @@ public class Recipe
     }
     public int getTotalRating(){
         return totalRating;
+    }
+    
+    public double getAverageRating(){
+        if(ratingCount == 0){
+            return 0.0;
+        }
+        return (double) totalRating / ratingCount;
     }
     public void setTotalRating(int totalRating){
         this.totalRating = totalRating;
@@ -107,8 +91,7 @@ public class Recipe
     }
     public String toString(){
         return "ID: " + Id + "A little more about this recipe:" + description
-        + "The recipe type is : " + type + "and it holds the following tags "
-        + tags + " The base serving for this recipe is " + baseServing + 
+        +  " The base serving for this recipe is " + baseServing + 
         "(Scalable through the setBaseServing button)" + "Ingredients: "
         + Ingredients + " Steps: " + steps + ratingCount + 
         "users have rated this recipe with a total rating of: " + totalRating;
