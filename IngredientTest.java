@@ -16,27 +16,25 @@ public class IngredientTest
     /**
      * Default constructor for test class IngredientTest
      */
-    public IngredientTest()
+    @Test
+    public void testConstrcutor()
     {
+        Ingredient i = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+
+        assertEquals("Flour", i.getName());
+        assertEquals(500, i.getQuantity(), 0.0001);
+        assertEquals(MeasurementUnit.GRAM, i.getUnit());
+        
     }
 
-    /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
-     */
-    @BeforeEach
-    public void setUp()
-    {
-    }
+    
 
-    /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
-     */
-    @AfterEach
-    public void tearDown()
+    @Test
+    public void testGetName()
     {
+        Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+        assertEquals("Flour", ingredie1.getName());
     }
 }
+
+
