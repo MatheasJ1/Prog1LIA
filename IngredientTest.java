@@ -22,12 +22,10 @@ public class IngredientTest
         Ingredient i = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
 
         assertEquals("Flour", i.getName());
-        assertEquals(500, i.getQuantity(), 0.0001);
+        assertEquals(500, i.getQuantity());
         assertEquals(MeasurementUnit.GRAM, i.getUnit());
         
     }
-
-    
 
     @Test
     public void testGetName()
@@ -35,6 +33,23 @@ public class IngredientTest
         Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
         assertEquals("Flour", ingredie1.getName());
     }
+
+    @Test
+    public void testSetName()
+    {
+        Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+        assertEquals("Flour", ingredie1.getName());
+        ingredie1.setName("Floour");
+    }
+
+    @Test
+    public void testGetQuantity()
+    {
+        Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+        ingredie1.setQuantity(450.1);
+    }
 }
+
+
 
 

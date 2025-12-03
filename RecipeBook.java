@@ -116,12 +116,21 @@ public class RecipeBook
         RatingCount = Rating count + 1;*/
     }
     
-    public void listTopRatedRecipes()
+    public String listTopRatedRecipes()
     {
-        
+        for( Recipe r : recipes){
+            if (r.getAverageRating() > 4.2){
+                return r.getId() + " " + r.getTitle() + " " 
+                + r.getDescription();
+        }
     }
-
-    public void scaleByServings(int recipeId, int newServings)
+    if (recipes.isEmpty()){
+            System.out.println("There are no recipes.");
+        }
+    
+    return null;
+}
+public void scaleByServings(int recipeId, int newServings)
     {
        
        
