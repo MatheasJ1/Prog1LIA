@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class Soup here.
  *
@@ -7,8 +7,7 @@
  */
 public class Soup extends Recipe
 {
-
-    /**
+/**
      * Constructor for objects of class Soup
      */
     public Soup(int Id, String title, String description, int baseServings)
@@ -26,6 +25,6 @@ public class Soup extends Recipe
     public void sampleMethod()
     {
         // put your code here
-        
-    }
+
+}
 }

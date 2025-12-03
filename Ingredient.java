@@ -43,9 +43,14 @@ public class Ingredient
     public void setUnit(MeasurementUnit unit){
         this.unit = unit;
     }
+
     public MeasurementUnit getUnit(){
         return unit;
     }
+
+    
+    @Override
+
     public String toString(){
         return "Ingredient : " + name + quantity + unit;
     }
