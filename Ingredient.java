@@ -49,6 +49,6 @@ public class Ingredient
     @Override
 
     public String toString(){
-        return "Ingredient : " + name + quantity + unit;
+        return "Ingredient : "  + name + quantity + unit;
     }
 }

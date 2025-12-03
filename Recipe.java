@@ -27,6 +27,7 @@ public class Recipe
         this.title = title;
         this.description = description;
         this.baseServing = baseServings;
+        ArrayList<Ingredient> Ingredients = new ArrayList<>();
     }
     public int getId()
     {
@@ -56,18 +57,24 @@ public class Recipe
         public ArrayList<Ingredient> getIngredients(){
             return Ingredients;
     }
-        public void setIngredients(ArrayList<Ingredient> Ingredients){
+        public void setIngredients(Ingredient i){
              if (Ingredients != null){
-                 this.Ingredients = new ArrayList<>(Ingredients);
+                 Ingredients.add(i);
          } else {
              this.Ingredients = new ArrayList<>();
+             Ingredients.add(i);
          }
     }
         public String[] getSteps(){
         return steps;
     }
     public void setSteps(String[] steps){
-        
+        {
+            if( steps == null){
+                System.out.println("There are no steps");
+            }
+            
+        }
     }
     public int getTotalRating(){
         return totalRating;
@@ -95,9 +102,9 @@ public class Recipe
         this.type = type;
     }
     public String toString(){
-        return "ID: " + Id + "A little more about this recipe:" + description
+        return "ID: " + Id + " A little more about this recipe:" + description
         +  " The base serving for this recipe is " + baseServing + 
-        "(Scalable through the setBaseServing button)" + "Ingredients: "
+        " (Scalable through the setBaseServing button)" + " Ingredients: "
         + Ingredients + " Steps: " + steps + ratingCount + 
         "users have rated this recipe with a total rating of: " + totalRating;
     }

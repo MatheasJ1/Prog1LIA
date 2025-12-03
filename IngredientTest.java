@@ -48,7 +48,31 @@ public class IngredientTest
         Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
         ingredie1.setQuantity(450.1);
     }
+
+    @Test
+    public void testSetQuantity()
+    {
+        Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+        ingredie1.setQuantity(505);
+    }
+
+    @Test
+    public void testSetUnit()
+    {
+        Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+        ingredie1.setUnit(MeasurementUnit.CUP);
+    }
+
+    @Test
+    public void testToString()
+    {
+        Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
+        assertEquals("Ingredient: Flour", 500, MeasurementUnit.GRAM, ingredie1.toString());
+    }
 }
+
+
+
 
 
 
