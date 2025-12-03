@@ -10,12 +10,11 @@ public class Ingredient
     // instance variables - replace the example below with your own
     private String name;
     private double quantity;
-    private String unit;
-
+    private MeasurementUnit unit;
     /**
      * Constructor for objects of class Ingredient
      */
-    public Ingredient(String name, double quantity, String unit)
+    public Ingredient(String name, double quantity, MeasurementUnit unit)
     {
         this.name = name;
         this.quantity = quantity;
@@ -41,11 +40,11 @@ public class Ingredient
     public void setQuantity(double quantity){
         this.quantity = quantity;
     }
-    public String getUnit(){
-        return unit;
-    }
-    public void setUnit(String unit){
+    public void setUnit(MeasurementUnit unit){
         this.unit = unit;
+    }
+    public MeasurementUnit getUnit(){
+        return unit;
     }
     public String toString(){
         return "Ingredient : " + name + quantity + unit;

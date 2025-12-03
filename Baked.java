@@ -8,15 +8,13 @@
 public class Baked extends Recipe
 {
     // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class Baked
      */
-    public Baked()
+    public Baked(int Id, String title, String description, int baseServings)
     {
-        // initialise instance variables
-        x = 0;
+        super(Id, title, description, baseServings);// Calling parent class constructor
+        setType(RecipeType.BAKED); // setting enum type
     }
 
     /**
@@ -25,9 +23,9 @@ public class Baked extends Recipe
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void sampleMethod()
     {
         // put your code here
-        return x + y;
+        
     }
 }

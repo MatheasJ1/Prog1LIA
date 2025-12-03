@@ -18,7 +18,7 @@ public class Recipe
     private String[] steps;
     private int totalRating;
     private int ratingCount;
-
+    private RecipeType type;
     /**
      * Constructor for objects of class Recipe
      */
@@ -88,6 +88,12 @@ public class Recipe
     }
     public void setRatingCount(int ratingCount){
         this.ratingCount = ratingCount;
+    }
+    public RecipeType getType(){
+        return type;
+    }
+    public void setType(RecipeType type){
+        this.type = type;
     }
     public String toString(){
         return "ID: " + Id + "A little more about this recipe:" + description
