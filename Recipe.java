@@ -27,7 +27,11 @@ public class Recipe
         this.title = title;
         this.description = description;
         this.baseServing = baseServings;
-        ArrayList<Ingredient> Ingredients = new ArrayList<>();
+        this.Ingredients = new ArrayList<>();
+        this.steps = new String[0];
+        this.totalRating = 0;
+        this.ratingCount = 0;
+        this.type = null;
     }
     public int getId()
     {
@@ -57,21 +61,18 @@ public class Recipe
         public ArrayList<Ingredient> getIngredients(){
             return Ingredients;
     }
-        public void setIngredients(Ingredient i){
-             if (Ingredients != null){
-                 Ingredients.add(i);
-         } else {
-             this.Ingredients = new ArrayList<>();
-             Ingredients.add(i);
-         }
+        public void addIngredients(Ingredient i){
+         Ingredients.add(i);
     }
         public String[] getSteps(){
         return steps;
     }
     public void setSteps(String[] steps){
         {
-            if( steps == null){
+            if( steps == null || steps.length == 0){
                 System.out.println("There are no steps");
+            } else {
+                this.steps = steps;
             }
             
         }
@@ -102,10 +103,12 @@ public class Recipe
         this.type = type;
     }
     public String toString(){
-        return "ID: " + Id + " A little more about this recipe:" + description
-        +  " The base serving for this recipe is " + baseServing + 
-        " (Scalable through the setBaseServing button)" + " Ingredients: "
-        + Ingredients + " Steps: " + steps + ratingCount + 
-        "users have rated this recipe with a total rating of: " + totalRating;
+        return "ID: " + Id +
+            "\nTitle: " + title +
+            "\nDescription: " + description +
+            "\nBase Servings: " + baseServing +
+            "\nIngredients: " + Ingredients +
+            "\nSteps: " + String.join(", ", steps) +
+            "\nAverage Rating: " + getAverageRating();
     }
 }

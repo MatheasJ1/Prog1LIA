@@ -97,4 +97,86 @@ public class RecipeBookTest
         assertTrue(rb.findRecipe(r1.getId()) != null);
         assertTrue(rb.findRecipe(r2.getId()) != null);
     }
+    
+    @Test
+public void testRateRecipe()
+{
+    Recipe r = new Recipe(0, "Soup", "Warm soup", 2);
+    rb.addrecipe(r);  
+
+    rb.rateRecipe(1, 5);
+    rb.rateRecipe(1, 3);
+
+    assertEquals(4.0, r.getAverageRating(), 0.0001);
+}
+@Test
+public void testListTopRatedRecipes()
+{
+    Recipe r = new Recipe(0, "Cake", "Chocolate cake", 4);
+    rb.addrecipe(r);  
+
+    rb.rateRecipe(1, 5);
+    rb.rateRecipe(1, 5);
+
+    String result = rb.listTopRatedRecipes();
+
+    assertNotNull(result);
+    assertTrue(result.contains("Cake"));
+}
+@Test
+public void testScaleByServings()
+{
+    Recipe r = new Recipe(0, "Cake", "desc", 4);
+    r.addIngredients(new Ingredient("Flour", 200, MeasurementUnit.GRAM));
+    r.addIngredients(new Ingredient("Sugar", 100, MeasurementUnit.GRAM));
+
+    rb.addrecipe(r);
+
+    rb.scaleByServings(1, 8); 
+
+    assertEquals(8, r.getBaseServings()); // base servings update to 8
+
+    assertEquals(400, r.getIngredients().get(0).getQuantity(), 0.0001); // flour scales from 200-400
+
+    assertEquals(200, r.getIngredients().get(1).getQuantity(), 0.0001); // sugar scales from 100-200
+}
+
+@Test
+public void testListByType()
+{
+    Recipe r1 = new Recipe(0, "Cake", "desc", 4);
+    r1.setType(RecipeType.BAKED);
+
+    Recipe r2 = new Recipe(0, "Soup", "desc", 3);
+    r2.setType(RecipeType.SOUP);
+
+    rb.addrecipe(r1); 
+    rb.addrecipe(r2); 
+
+    
+    assertEquals(RecipeType.BAKED, rb.findRecipe(1).getType());
+    assertEquals(RecipeType.SOUP, rb.findRecipe(2).getType());
+
+    
+}
+
+@Test
+public void testSearchRecipes()
+{
+    Recipe r1 = new Recipe(0, "Tomato Soup", "desc", 3);
+    r1.addIngredients(new Ingredient("Tomato", 2, MeasurementUnit.GRAM));
+
+    Recipe r2 = new Recipe(0, "Chocolate Cake", "desc", 4);
+    r2.addIngredients(new Ingredient("Chocolate", 100, MeasurementUnit.GRAM));
+
+    rb.addrecipe(r1); 
+    rb.addrecipe(r2);
+
+    
+    rb.searchRecipes("title", "Soup");
+    rb.searchRecipes("ingredient", "chocolate");
+    assertEquals("Tomato Soup", rb.findRecipe(1).getTitle());
+    assertEquals("Chocolate Cake", rb.findRecipe(2).getTitle());
+}
+
 }

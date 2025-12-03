@@ -107,7 +107,7 @@ public class RecipeTest
     {
         Recipe recipe1 = new Recipe(1, "c", "h", 1);
         Ingredient carrot = new Ingredient("carrot", 500, MeasurementUnit.GRAM);
-        recipe1.setIngredients(carrot);
+        recipe1.addIngredients(carrot);
         assertEquals(carrot, recipe1.getIngredients());
     }
 
@@ -116,7 +116,7 @@ public class RecipeTest
     {
         Recipe recipe1 = new Recipe(1, "c", "h", 1);
         Ingredient carrot = new Ingredient("carrot", 1, MeasurementUnit.CUP);
-        recipe1.setIngredients(carrot);
+        recipe1.addIngredients(carrot);
         assertEquals(carrot, recipe1.getIngredients());
     }
 

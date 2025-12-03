@@ -7,6 +7,8 @@
  */
 public enum RecipeType
 {
-    BAKED, FRIED, SOUP
+    BAKED,
+    FRIED,
+    SOUP
 }
 

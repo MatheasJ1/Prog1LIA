@@ -67,7 +67,7 @@ public class IngredientTest
     public void testToString()
     {
         Ingredient ingredie1 = new Ingredient("Flour", 500, MeasurementUnit.GRAM);
-        assertEquals("Ingredient: Flour", 500, MeasurementUnit.GRAM, ingredie1.toString());
+        assertEquals("Flour (500.0 GRAM)", ingredie1.toString());
     }
 }
 

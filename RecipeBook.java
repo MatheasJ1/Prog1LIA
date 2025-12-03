@@ -132,9 +132,20 @@ public class RecipeBook
 }
 public void scaleByServings(int recipeId, int newServings)
     {
+       Recipe r = findRecipe(recipeId);
        
+       if (r==null){
+           System.out.println("Invalid recipe ID.");
+           return;
+       }
+       int oldServings = r.getBaseServings();
+       double factor = (double)newServings / oldServings;
        
+       for (Ingredient ing : r.getIngredients()){
+           ing.setQuantity(ing.getQuantity() * factor);
+       }
        
+       r.setBaseServings(newServings);
     }
 
     public void addrecipe(Recipe recipe){
@@ -149,4 +160,15 @@ public void scaleByServings(int recipeId, int newServings)
         }
         return null;
     }
+    
+    @Override
+public String toString() {
+    return "Recipe Book: " + name +
+    "\nOwner: " + owner +
+    "\nYear: " + yearOfPublication +
+    "\nTotal Recipes: " + recipes.size() +
+     "\nRecipes:";
+
+}
+
 }
