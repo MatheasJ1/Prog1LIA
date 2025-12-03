@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class Soup extends Recipe
 {
+
 /**
      * Constructor for objects of class Soup
      */
@@ -27,4 +28,5 @@ public class Soup extends Recipe
         // put your code here
 
 }
+    
 }
