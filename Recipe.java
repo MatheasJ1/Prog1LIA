@@ -111,4 +111,15 @@ public class Recipe
             "\nSteps: " + String.join(", ", steps) +
             "\nAverage Rating: " + getAverageRating();
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+    if (obj == this) return true;
+    if (!(obj instanceof Recipe)) return false;
+
+    Recipe other = (Recipe) obj;
+
+    return this.getId() == other.getId();
+    }   
+
 }

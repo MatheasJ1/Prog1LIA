@@ -51,4 +51,17 @@ public class Ingredient
     public String toString(){
         return name + " (" + quantity + " " + unit + ")";
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+    if (obj == this) return true;
+    if (!(obj instanceof Ingredient)) return false;
+
+    Ingredient other = (Ingredient) obj;
+
+    return this.name.equals(other.name)
+        && this.unit == other.unit
+        && this.quantity == other.quantity;
+    }
+
 }

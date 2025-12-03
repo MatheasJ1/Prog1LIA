@@ -129,8 +129,8 @@ public class RecipeBook
         }
     
     return null;
-}
-public void scaleByServings(int recipeId, int newServings)
+    }
+    public void scaleByServings(int recipeId, int newServings)
     {
        Recipe r = findRecipe(recipeId);
        
@@ -162,13 +162,22 @@ public void scaleByServings(int recipeId, int newServings)
     }
     
     @Override
-public String toString() {
+    public String toString() {
     return "Recipe Book: " + name +
     "\nOwner: " + owner +
     "\nYear: " + yearOfPublication +
     "\nTotal Recipes: " + recipes.size() +
      "\nRecipes:";
 
-}
+    }
+    @Override
+    public boolean equals(Object obj) {
+    if (obj == this) return true;
+    if (!(obj instanceof RecipeBook)) return false;
+
+    RecipeBook other = (RecipeBook) obj;
+
+    return this.name.equals(other.name);
+    }
 
 }
