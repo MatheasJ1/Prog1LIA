@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.*;
 /**
  * Write a description of class RecipeBook here.
  *
@@ -65,33 +66,59 @@ public class RecipeBook
           print "The Type may be Invalid or you may have a typo. Please enter
           a valid type."*/
         }
-    
-    public void searchRecipes(String criteria, String query)
+    public void searchByTitle(String title){
+        for (Recipe r : recipes){
+            if (r.getTitle().equals(title)){
+                System.out.println(r);
+            }
+        }
+    }
+    public void searchByIngredient(String Ingredient){
+        for (Recipe r : recipes){
+            if (r.getIngredients().equals(Ingredient)){
+                System.out.println(r);
+            }
+        }
+    }
+    public void searchByType(RecipeType type){
+         for (Recipe r : recipes){
+             if (r.getType().equals(type)){
+                 System.out.println(r);
+             }
+         }
+    }
+    public void searchRecipes()
     {
-        /*set query to lowercase
-        set found to false
-        
-        if recipe.title contains query then
-        print recipe.Id and recipe.Title
-        set found to true
-        end if
-        
-        else if criteria = "ingredient" then
-        for each ingredients in recipe.ingredients 
-        if recipe.ingredient contains query then
-        print recipe.Id and recipe.Title
-        set found to true
-        break loop
-        
-        else if criteria = "tag" then
-        for each tag in tag.tags 
-        if tag.tags contains query then
-        print recipe.Id and recipe.Title
-        set found to true
-        break loop
-        
-        if found = false
-        print "No results found."*/
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        System.out.println(" --- SEARCH MENU ---");
+        System.out.println("1. SEARCH BY TITLE");
+        System.out.println("2. SEARCH BY INGREDIENT");
+        System.out.println("3. SEARCH BY TYPE.");
+        System.out.println("0. RETURN TO MAIN MENU");
+        choice = sc.nextInt();
+        sc.nextLine();
+        switch (choice) {
+            case 1:
+                System.out.println("Enter a title to search");
+                String title = sc.nextLine();
+                searchByTitle(title);
+                break;
+            case 2:
+                System.out.println("Enter an Ingredient to search");
+                String Ingredient = sc.nextLine();
+                searchByIngredient(Ingredient);
+                break;
+            case 3:
+                System.out.println("Enter an type to search.");
+                String type = sc.nextLine();
+                searchByType(type);
+                break;
+            case 0:
+                System.out.println("Returning to main menu");
+            default:
+                System.out.println("Please enter a choice.");
+        }
     }
 
     public void printRecipeDetails(int recipeId)
@@ -107,19 +134,22 @@ public class RecipeBook
     
     public void rateRecipe(int recipeId, int rating)
     {
-        /*
-        if Id == null
-        print "Invalid Id. Please enter a valid recipe ID."
-        
-        if rating > 1 || rating < 5
-        totalRating = this.recipeId.getTotalRating() + this.rating;
-        RatingCount = Rating count + 1;*/
+        for (Recipe r : recipes){
+            if (r.getId() == (recipeId)){
+                System.out.println("Please enter your rating for :" + r.getTitle() + " .");
+            } 
+            if (rating < 1 || rating > 5){
+                System.out.println("Please enter a rating between 1 and 5.");
+            } else {
+                 rating = r.getTotalRating()  + rating;
+                r.setTotalRating(rating);
+            }
+        }
     }
     
     public String listTopRatedRecipes()
-    {
-        for( Recipe r : recipes){
-            if (r.getAverageRating() > 4.2){
+    {   for( Recipe r : recipes){
+        if (r.getAverageRating() > 4.2){
                 return r.getId() + " " + r.getTitle() + " " 
                 + r.getDescription();
         }
