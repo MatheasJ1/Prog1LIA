@@ -80,9 +80,9 @@ public class RecipeBook
             }
         }
     }
-    public void searchByType(RecipeType type){
+    public void searchByType(String type){
          for (Recipe r : recipes){
-             if (r.getType().equals(type)){
+             if (r.getType().toString().equalsIgnoreCase(type)){
                  System.out.println(r);
              }
          }

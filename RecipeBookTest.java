@@ -163,20 +163,23 @@ public void testListByType()
 @Test
 public void testSearchRecipes()
 {
+
+    RecipeBook rb = new RecipeBook("Test", "Owner", "2024");
+
     Recipe r1 = new Recipe(0, "Tomato Soup", "desc", 3);
     r1.addIngredients(new Ingredient("Tomato", 2, MeasurementUnit.GRAM));
+    rb.addrecipe(r1);
 
     Recipe r2 = new Recipe(0, "Chocolate Cake", "desc", 4);
     r2.addIngredients(new Ingredient("Chocolate", 100, MeasurementUnit.GRAM));
-
-    rb.addrecipe(r1); 
     rb.addrecipe(r2);
 
-    
-    rb.searchRecipes("title", "Soup");
-    rb.searchRecipes("ingredient", "chocolate");
+    rb.searchByTitle("Tomato Soup");
     assertEquals("Tomato Soup", rb.findRecipe(1).getTitle());
+
+    rb.searchByIngredient("Chocolate");
     assertEquals("Chocolate Cake", rb.findRecipe(2).getTitle());
 }
 
 }
+
