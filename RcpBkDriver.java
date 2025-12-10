@@ -80,6 +80,7 @@ public class RcpBkDriver
                     System.out.println("Enter a ID for your recipe. ");
                     int Id = sc.nextInt();
                     System.out.println(" Enter recipe's title. ");
+                    sc.nextLine();
                     String title = sc.nextLine();
                     System.out.println(" Enter the recipe's description. ");
                     String description = sc.nextLine();
@@ -101,6 +102,28 @@ public class RcpBkDriver
                         System.out.println("Recipe has been found. ");
                         System.out.println(found);
                     }
+                    break;
+                case 10:
+                    System.out.println("Enter a recipe's ID.");
+                    int rID = sc.nextInt();
+                    sc.nextLine();
+                    
+                    Recipe r = book.findRecipe(rID);
+                    if (r == null){
+                        System.out.println("Recipe not found");
+                        break;
+                    }
+                    
+                    System.out.println("Enter an Ingredient name.");
+                    String ingName = sc.nextLine();
+                    System.out.println("Enter a quantity");
+                    double qty = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.println ("Enter a unit : GRAM, MILLILITER, CUP, TABLESPOON, TEASPOON. Must be all Caps");
+                    MeasurementUnit unit = MeasurementUnit.valueOf(sc.nextLine().toUpperCase());
+                    Ingredient ing = new Ingredient(ingName, qty, unit);
+                    r.addIngredients(ing);
+                    System.out.println("Ingrediet successfully added.");
                     break;
                 case 0:
                     System.out.println(" Goodbye! ");

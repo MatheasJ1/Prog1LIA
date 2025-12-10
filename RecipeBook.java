@@ -44,28 +44,7 @@ public class RecipeBook
             }
         }
     }
-    public void listByType(String type)
-    {
-        /*if ( this.type.equals("Baked")){
-            for every recipe of baked type
-            print baked.recipes
-            set found to true
-            else if (this.type.equals("Soup"){
-                for every recipe of soup type
-                print soup.recipes
-                set found to true
-            } else if{
-                this.type.equals("Fried"){
-                    for every recipe of fried type
-                    print fried.recipes
-                    set found to true
-                }
-            }
-        }
-          if found = false
-          print "The Type may be Invalid or you may have a typo. Please enter
-          a valid type."*/
-        }
+    
     public void searchByTitle(String title){
         for (Recipe r : recipes){
             if (r.getTitle().equals(title)){
